@@ -1,0 +1,14 @@
+vector<int> ninjaAndSortedArrays(vector<int>& arr1, vector<int>& arr2, int m, int n) {
+	int ind1 = m - 1, ind2 = n - 1, ind = n + m - 1;
+	while(ind1 >= 0 && ind2 >= 0){
+		if(arr1[ind1] > arr2[ind2]){
+			arr1[ind--] = arr1[ind1--];
+		}else{
+			arr1[ind--] = arr2[ind2--];
+		}
+	}
+	while(ind2 >= 0){
+		arr1[ind--] = arr2[ind2--];
+	}
+	return arr1;
+}
